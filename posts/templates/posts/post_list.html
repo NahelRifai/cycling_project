@@ -1,13 +1,23 @@
 {% extends 'base_layout.html' %}
 
 {% block content %}
-    <div class="posts">
-        {% for post in posts %}
-            <div class="post">
-                <h2><a href="{% url 'posts:detail' slug=post.slug %}">{{ post.title }}</a></h2>
-                <p>{{ post.snippet }}</p>
-                <p>{{ post.date }}</p>
+
+        <div class="posts">
+            <div class="container">
+                <div class="row">
+                    {% for post in posts %}
+                            <div class="col mb-4" align="center">
+                                <h2><a href="{% url 'posts:detail' slug=post.slug %}">{{ post.title }}</a></h2>
+                                <p>{{ post.snippet }}</p>
+                                <p>{{ post.date }}</p>
+                            </div>
+                    {% if forloop.counter|divisibleby:3 %}
+                </div>
+                <div class="row">
+                    {% endif %}
+                    {% endfor %}
+                </div>
             </div>
-        {% endfor %}
-    </div>
+        </div>
+
 {% endblock %}
