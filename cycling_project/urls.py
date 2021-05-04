@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^posts/', include('posts.urls')),
     url(r'^about/$',views.about),
     url(r'^$',views.homepage),
+    url(r'^accounts/',include('accounts.urls'))
 
 ]
 
